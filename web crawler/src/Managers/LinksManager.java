@@ -24,7 +24,7 @@ public class LinksManager {
 	
 	private ConnectionManager connectionManager = ConnectionManager.getInstance();
 	
-	private ValidationManager validationManager = ValidationManager.getInstance();
+	private IValidationManager validationManager = ValidationManager.getInstance();
 	
 	public void crawlLinks(String link, LinkedList<String> linksToCrawl, LinkedList<String> crawledLinks) {
 		crawledLinks.add(link);

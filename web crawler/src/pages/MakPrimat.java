@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import Managers.ConnectionManager;
+import Managers.IValidationManager;
 import Managers.ValidationManager;
 import beans.PictureBean;
 
@@ -15,7 +16,7 @@ public class MakPrimat implements ICrawler{
 
 	private ConnectionManager connectionManager = ConnectionManager.getInstance();
 
-	private ValidationManager validationManager = ValidationManager.getInstance();
+	private IValidationManager validationManager = ValidationManager.getInstance();
 
 	private String page = "http://makprimat.com.mk/store/";
 	private ArrayList<PictureBean> pictures;
