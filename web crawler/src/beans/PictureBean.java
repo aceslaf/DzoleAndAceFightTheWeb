@@ -1,18 +1,26 @@
 package beans;
 
 import java.util.LinkedList;
+import java.util.Locale.Category;
 
 public class PictureBean {
 
 	private String pictureLink;
 	private LinkedList<String> tags;
+	private Category category;
 	
 	public PictureBean(String pictureLink, LinkedList<String> tags) {
 		this.setPictureLink(pictureLink);
 		this.setTags(tags);
 	}
+	
 
-	private String getPictureLink() {
+	public Category GetCategory()
+	{
+		return this.category;
+	}
+	
+	public String getPictureLink() {
 		return pictureLink;
 	}
 
@@ -20,7 +28,7 @@ public class PictureBean {
 		this.pictureLink = pictureLink;
 	}
 
-	private LinkedList<String> getTags() {
+	public LinkedList<String> getTags() {
 		return tags;
 	}
 

@@ -1,6 +1,7 @@
 package pages;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,7 +11,7 @@ import Managers.ConnectionManager;
 import Managers.ValidationManager;
 import beans.PictureBean;
 
-public class MakPrimat {
+public class MakPrimat implements ICrawler{
 
 	private ConnectionManager connectionManager = ConnectionManager.getInstance();
 
@@ -42,6 +43,11 @@ public class MakPrimat {
 				System.out.println(linkUrl);
 			}
 		}
+	}
+
+	@Override
+	public List<PictureBean> Crawl() {
+		throw new NullPointerException();
 	}
 
 }
