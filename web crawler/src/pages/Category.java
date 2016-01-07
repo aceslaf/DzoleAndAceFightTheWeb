@@ -1,7 +1,12 @@
 package pages;
 
 public enum Category {
-	asd,
-	dsa
+	Man,
+	Woman,
+	Throusers,
+	Accesories,
+	Belts,
+	
+	dsa, Raincoats,Blazers, Suits, Shirts, Knitwear, Scarves, Ties, Wallets 
 
 }

@@ -1,40 +1,80 @@
 package beans;
 
+import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Locale.Category;
+
+import pages.Category;
 
 public class PictureBean {
 
+	private HashSet<String> tags = new HashSet<>();
+	private HashSet<Category> categories  = new HashSet<>();
 	private String pictureLink;
-	private LinkedList<String> tags;
-	private Category category;
+	private String price;
+	private String description;
+	private String originalDestinationLink;
+	
+	public PictureBean () {
+		super();
+		tags = new HashSet<>();
+		categories  = new HashSet<>();
+	}
 	
 	public PictureBean(String pictureLink, LinkedList<String> tags) {
 		this.setPictureLink(pictureLink);
-		this.setTags(tags);
+		tags.stream().forEach(t->this.tags.add(t));
 	}
 	
-
-	public Category GetCategory()
+	public String getOriginalDestinationLink() {
+		return originalDestinationLink;
+	}
+	public HashSet<Category> getCategories()
 	{
-		return this.category;
+		return this.categories;
 	}
-	
 	public String getPictureLink() {
 		return pictureLink;
 	}
-
-	private void setPictureLink(String pictureLink) {
-		this.pictureLink = pictureLink;
-	}
-
-	public LinkedList<String> getTags() {
+	public HashSet<String> getTags() {
 		return tags;
 	}
+	public String getPrice() {
+		return price;
+	}
 
-	private void setTags(LinkedList<String> tags) {
-		this.tags = tags;
+	public String getDescription() {
+		return description;
+	}
+
+	public PictureBean addTag(String tag)
+	{
+		tags.add(tag);
+		return this;
 	}
 	
+	public PictureBean setOriginalDestinationLink(String originalDestinationLink) {
+		this.originalDestinationLink = originalDestinationLink;
+		return this;
+	}
+
+	public PictureBean setDescription(String description) {
+		this.description = description;
+		return this;
+	}
+	
+	public PictureBean addCategory(Category asd) {
+		this.categories.add(asd);
+		return this;
+	}
+	
+	public PictureBean setPrice(String price) {
+		this.price = price;
+		return this;
+	}
+	
+	public PictureBean setPictureLink(String pictureLink) {
+		this.pictureLink = pictureLink;
+		return this;
+	}
 	
 }
