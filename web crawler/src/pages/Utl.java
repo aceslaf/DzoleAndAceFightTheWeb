@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.stream.Stream;
 import java.util.function.*;
 
+import org.apache.log4j.Logger;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Utl {
 
+	final static Logger logger = Logger.getLogger(Utl.class); 
 	public static List<Element> ToList(Elements elems)
 	{
 		ArrayList<Element> asList = new ArrayList<>();
@@ -30,6 +32,7 @@ public class Utl {
 		}catch (Exception e){
 			//TODO log
 			e.printStackTrace();
+			logger.error(String.format("error with safe lambda execution "), e);
 		}
 		return null;
 	}
@@ -39,6 +42,7 @@ public class Utl {
 		}catch (Exception e){
 			//TODO log
 			e.printStackTrace();
+			logger.error(String.format("error with safe lambda execution "), e);
 		}
 	}
 }

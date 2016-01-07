@@ -15,7 +15,7 @@ public class BasePageSpecificCrawler implements ICrawler{
 	private IDbManager dbManager;
 	private IValidationManager validationManager;
 	private List<CategoryPage> pages = new ArrayList<>();
-	
+	private Iterator<CategoryPage> pageIterator;
 
 	public BasePageSpecificCrawler(IDbManager dbManager, IValidationManager validationManager) {
 		super();
@@ -25,12 +25,16 @@ public class BasePageSpecificCrawler implements ICrawler{
 	}
 	
 	public CrawlResult executeCrawlCycle(){
-		Iterator<CategoryPage> pageIterator = pages.iterator();
+		if(pageIterator==null){
+			pageIterator=pages.iterator();
+		}
+		
 		CrawlResult result = new CrawlResult();
 		if(pageIterator.hasNext()){
 			crawlSinglePage(pageIterator.next())
 							.filter(picBean->{return picBean!=null;})
 							.forEach(picBean->result.picBeans.add(picBean));
+			
 			result.shouldEnd=false;
 		}else{
 			result.shouldEnd=true;

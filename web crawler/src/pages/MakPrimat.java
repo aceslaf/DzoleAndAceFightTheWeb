@@ -25,12 +25,12 @@ public class MakPrimat extends BasePageSpecificCrawler {
 	private String page = "http://makprimat.com.mk/store/";
 	private ArrayList<PictureBean> pictures=new ArrayList<>();
 	private ArrayList<String> linkToCrawl=new ArrayList<>();
-	private ArrayList<CategoryPage> subPages=new ArrayList<>();
 
 	
 
 	public MakPrimat(ConnectionManager connectionManager,IDbManager dbManager, IValidationManager validation) {
 		super(dbManager, validation);
+		List<CategoryPage> subPages = getCategoryPages();
 		subPages.add(new CategoryPage("http://makprimat.com.mk/store/men/trousers/", 
 								 Arrays.asList(Category.Man,Category.Throusers)));
 		subPages.add(new CategoryPage("http://makprimat.com.mk/store/men/accessories/belts-2/", 
@@ -93,7 +93,7 @@ public class MakPrimat extends BasePageSpecificCrawler {
 					});
 	}
 	
-
+	@Override
 	public Stream<PictureBean> crawlSinglePage(CategoryPage subPage) {
 		Document doc = subPage.downloadDocument();
 		Elements buyableItems = doc.select(".celo");
